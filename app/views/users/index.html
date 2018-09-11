@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+ <html lang="en"> 
+      <head> 
+           <meta content="text/html" charset="utf-8" > 
+           <meta name="viewport" content="width=device-width, initial-scale=1"> 
+           <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery-ui.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery.datepick.css" > 
+           <link rel="stylesheet" href="../../../assets/css/custom/uploadfile.css" > 
+           <link rel="stylesheet" href="../../../assets/css/fontawesome-all.min.css" > 
+          <link rel="stylesheet" href="../../../assets/css/custom/slide-menu.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/table-header.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/view.css" >
+    </head>    <body onload="loadHtmlPage('../menu.html', 'sidemenu');toggle_display('dview');">
+        <div class="container-fluid" style="padding:0; margin:0; top:0; left:0;"> 
+            <div ng-app="usersView" ng-controller="usersCtrl" class="row">
+                <div id="sidemenu" class="col-xl-3 col-lg-3 col-md-3 d-lg-inline d-md-inline d-sm-none d-none"></div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <span class="info"></span>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <ul class="menu">
+                                <li onclick="toggle_display('dview','reload');" class="rootmenu"><i class="fas fa-home" aria-hidden="true"></i><a href="#"> Home</a></li>
+                                <li class="rootmenu"><i class="fas fa-print" aria-hidden="true"></i><a href="#"> Print</a></li>
+                                <li class="rootmenu"><i class="fas fa-cloud-download-alt"></i><a href="#"> Export</a>
+                                    <ul id="menu_list">
+                                        <li><i class="fas fa-file-excel" aria-hidden="true"></i><a href="#">  Excel</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  CSV</a></li>
+                                        <li><i class="fas fa-file-pdf" aria-hidden="true"></i><a href="#">  Pdf</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  Text</a></li>
+                                        <li><i class="fas fa-file-word" aria-hidden="true"></i><a href="#">  Word</a></li>
+                                    </ul>
+                                </li>
+                                <li onclick="toggle_display('dnew');" class="rootmenu"><i class="fas fa-copy" aria-hidden="true"></i><a href="#"> Add New</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div>
+            <div class="display" id="dnew">
+                <form name="frmUser"  method="post" enctype="multipart/form-data">
+                    <input #colname type="hidden" name="colname" ng-model="update.col_name" />
+                    <input #colvalue type="hidden" name="colvalue" ng-model="update.col_value" />
+
+     <div class="form-group">
+      <label for="last_name">Last Name</label>
+      <input type="text" class="form-control" name="last_name" ng-model="user.last_name" placeholder="Enter last_name" />
+     </div>
+     <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" class="form-control" name="first_name" ng-model="user.first_name" placeholder="Enter first_name" />
+     </div>
+     <div class="form-group">
+      <label for="middle_name">Middle Name</label>
+      <input type="text" class="form-control" name="middle_name" ng-model="user.middle_name" placeholder="Enter middle_name" />
+     </div>
+     <div class="form-group">
+      <label for="e_mail">E Mail</label>
+      <input type="text" class="form-control" name="e_mail" ng-model="user.e_mail" placeholder="Enter e_mail" />
+     </div>
+     <div class="form-group">
+      <label for="mobile_phone">Mobile Phone</label>
+      <input type="tel" class="form-control" name="mobile_phone" ng-model="user.mobile_phone" placeholder="Enter mobile_phone" />
+     </div>
+     <div class="form-group">
+      <label for="address">Address</label>
+      <textarea class="form-control" name="address" ng-model="user.address">Enter address</textarea>
+     </div>
+     <div class="form-group">
+      <label for="date_registered">Date Registered</label>
+      <input type="date" class="form-control" name="date_registered" ng-model="user.date_registered" placeholder="Enter date_registered" />
+     </div>
+     <div class="form-group">
+      <label for="lastlogin">Lastlogin</label>
+      <input type="text" class="form-control" name="lastlogin" ng-model="user.lastlogin" placeholder="Enter lastlogin" />
+     </div>
+     <div class="form-group">
+      <label for="first_login_ip">First Login Ip</label>
+      <input type="text" class="form-control" name="first_login_ip" ng-model="user.first_login_ip" placeholder="Enter first_login_ip" />
+     </div>
+     <div class="form-group">
+      <label for="last_login_ip">Last Login Ip</label>
+      <input type="text" class="form-control" name="last_login_ip" ng-model="user.last_login_ip" placeholder="Enter last_login_ip" />
+     </div>
+     <div class="form-group">
+      <label for="role">Role</label>
+      <input type="text" class="form-control" name="role" ng-model="user.role" placeholder="Enter role" />
+     </div>
+     <div class="form-group">
+      <label for="date_created">Date Created</label>
+      <input type="date" class="form-control" name="date_created" ng-model="user.date_created" placeholder="Enter date_created" />
+     </div>
+     <div class="form-group">
+      <label for="date_updated">Date Updated</label>
+      <input type="date" class="form-control" name="date_updated" ng-model="user.date_updated" placeholder="Enter date_updated" />
+     </div>
+     <div class="form-group">
+      <label for="date_deleted">Date Deleted</label>
+      <input type="date" class="form-control" name="date_deleted" ng-model="user.date_deleted" placeholder="Enter date_deleted" />
+     </div>
+     <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" class="form-control" name="status" ng-model="user.status" placeholder="Enter status" />
+     </div>
+<button ng-click="user_save();" type="button" class="btn btn-primary">&nbsp;SAVE&nbsp;</button>
+</form>
+</div><div class="display" id="dview">
+  <table class="table table-hover table-dark table-bordered">    <thead>
+        <tr><th>S/N</th><th>ID</th><th>LAST NAME</th><th>FIRST NAME</th><th>E MAIL</th><th>MOBILE PHONE</th><th>ADDRESS</th><th>FIRST LOGIN IP</th><th>LAST LOGIN IP</th><th>ROLE</th><th>&nbsp;</th>
+    </tr></thead><tbody><tr ng-repeat="x in users.user"><td>{{$index + 1}}</td><td>{{x.id}}</td><td>{{x.last_name}}</td><td>{{x.first_name}}</td><td>{{x.e_mail}}</td><td>{{x.mobile_phone}}</td><td>{{x.address}}</td><td>{{x.first_login_ip}}</td><td>{{x.last_login_ip}}</td><td>{{x.role}}</td><td align="center">&nbsp;<i onclick="toggle_display('dnew');" ng-click="do_user_update('id', x.id);" class="fas fa-edit"></i>&nbsp;&nbsp;<i onclick="toggle_display('dsview');" ng-click="user_view_single('id', x.id);" class="fas fa-eye"></i>&nbsp;&nbsp;<i ng-click="user_delete('id', x.id);" class="fas fa-trash"></i></td>&nbsp;
+  </tbody>
+</table>
+</div>
+    <div class="display" id="dsview">
+        <table>
+            <tr><td align="right"><b>id:</b></td><td align="left">&nbsp;{{user.id}}</td></tr>
+            <tr><td align="right"><b>last_name:</b></td><td align="left">&nbsp;{{user.last_name}}</td></tr>
+            <tr><td align="right"><b>first_name:</b></td><td align="left">&nbsp;{{user.first_name}}</td></tr>
+            <tr><td align="right"><b>middle_name:</b></td><td align="left">&nbsp;{{user.middle_name}}</td></tr>
+            <tr><td align="right"><b>e_mail:</b></td><td align="left">&nbsp;{{user.e_mail}}</td></tr>
+            <tr><td align="right"><b>mobile_phone:</b></td><td align="left">&nbsp;{{user.mobile_phone}}</td></tr>
+            <tr><td align="right"><b>address:</b></td><td align="left">&nbsp;{{user.address}}</td></tr>
+            <tr><td align="right"><b>date_registered:</b></td><td align="left">&nbsp;{{user.date_registered}}</td></tr>
+            <tr><td align="right"><b>lastlogin:</b></td><td align="left">&nbsp;{{user.lastlogin}}</td></tr>
+            <tr><td align="right"><b>first_login_ip:</b></td><td align="left">&nbsp;{{user.first_login_ip}}</td></tr>
+            <tr><td align="right"><b>last_login_ip:</b></td><td align="left">&nbsp;{{user.last_login_ip}}</td></tr>
+            <tr><td align="right"><b>role:</b></td><td align="left">&nbsp;{{user.role}}</td></tr>
+            <tr><td align="right"><b>date_created:</b></td><td align="left">&nbsp;{{user.date_created}}</td></tr>
+            <tr><td align="right"><b>date_updated:</b></td><td align="left">&nbsp;{{user.date_updated}}</td></tr>
+            <tr><td align="right"><b>date_deleted:</b></td><td align="left">&nbsp;{{user.date_deleted}}</td></tr>
+            <tr><td align="right"><b>status:</b></td><td align="left">&nbsp;{{user.status}}</td></tr>
+        </table>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/popper.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/angular.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.datepick.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.table2excel.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.uploadfile.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/utility.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/autocomplete.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/src/users.js"></script>    </body>
+</html>

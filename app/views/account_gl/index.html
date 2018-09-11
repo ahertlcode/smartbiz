@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+ <html lang="en"> 
+      <head> 
+           <meta content="text/html" charset="utf-8" > 
+           <meta name="viewport" content="width=device-width, initial-scale=1"> 
+           <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery-ui.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery.datepick.css" > 
+           <link rel="stylesheet" href="../../../assets/css/custom/uploadfile.css" > 
+           <link rel="stylesheet" href="../../../assets/css/fontawesome-all.min.css" > 
+          <link rel="stylesheet" href="../../../assets/css/custom/slide-menu.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/table-header.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/view.css" >
+    </head>    <body onload="loadHtmlPage('../menu.html', 'sidemenu');toggle_display('dview');">
+        <div class="container-fluid" style="padding:0; margin:0; top:0; left:0;"> 
+            <div ng-app="account_glView" ng-controller="account_glCtrl" class="row">
+                <div id="sidemenu" class="col-xl-3 col-lg-3 col-md-3 d-lg-inline d-md-inline d-sm-none d-none"></div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <span class="info"></span>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <ul class="menu">
+                                <li onclick="toggle_display('dview','reload');" class="rootmenu"><i class="fas fa-home" aria-hidden="true"></i><a href="#"> Home</a></li>
+                                <li class="rootmenu"><i class="fas fa-print" aria-hidden="true"></i><a href="#"> Print</a></li>
+                                <li class="rootmenu"><i class="fas fa-cloud-download-alt"></i><a href="#"> Export</a>
+                                    <ul id="menu_list">
+                                        <li><i class="fas fa-file-excel" aria-hidden="true"></i><a href="#">  Excel</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  CSV</a></li>
+                                        <li><i class="fas fa-file-pdf" aria-hidden="true"></i><a href="#">  Pdf</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  Text</a></li>
+                                        <li><i class="fas fa-file-word" aria-hidden="true"></i><a href="#">  Word</a></li>
+                                    </ul>
+                                </li>
+                                <li onclick="toggle_display('dnew');" class="rootmenu"><i class="fas fa-copy" aria-hidden="true"></i><a href="#"> Add New</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div>
+            <div class="display" id="dnew">
+                <form name="frmAccount_gl"  method="post" enctype="multipart/form-data">
+                    <input #colname type="hidden" name="colname" ng-model="update.col_name" />
+                    <input #colvalue type="hidden" name="colvalue" ng-model="update.col_value" />
+
+     <div class="form-group">
+      <label for="naration">Naration</label>
+      <input type="text" class="form-control" name="naration" ng-model="account_gl.naration" placeholder="Enter naration" />
+     </div>
+     <div class="form-group">
+      <label for="naration">Naration</label>
+      <textarea class="form-control" name="naration" ng-model="account_gl.naration">Enter naration</textarea>
+     </div>
+     <div class="form-group">
+      <label for="trans_id">Trans Id</label>
+      <input type="text" class="form-control" name="trans_id" ng-model="account_gl.trans_id" placeholder="Enter trans_id" />
+     </div>
+     <div class="form-group">
+      <label for="trans_ref">Trans Ref</label>
+      <input type="text" class="form-control" name="trans_ref" ng-model="account_gl.trans_ref" placeholder="Enter trans_ref" />
+     </div>
+     <div class="form-group">
+      <label for="debit">Debit</label>
+      <input type="text" class="form-control" name="debit" ng-model="account_gl.debit" placeholder="Enter debit" />
+     </div>
+     <div class="form-group">
+      <label for="credit">Credit</label>
+      <input type="text" class="form-control" name="credit" ng-model="account_gl.credit" placeholder="Enter credit" />
+     </div>
+     <div class="form-group">
+      <label for="trans_date">Trans Date</label>
+      <input type="date" class="form-control" name="trans_date" ng-model="account_gl.trans_date" placeholder="Enter trans_date" />
+     </div>
+     <div class="form-group">
+      <label for="value_date">Value Date</label>
+      <input type="date" class="form-control" name="value_date" ng-model="account_gl.value_date" placeholder="Enter value_date" />
+     </div>
+     <div class="form-group">
+      <label for="savedby">Savedby</label>
+      <input type="text" class="form-control" name="savedby" ng-model="account_gl.savedby" placeholder="Enter savedby" />
+     </div>
+     <div class="form-group">
+      <label for="postby">Postby</label>
+      <input type="text" class="form-control" name="postby" ng-model="account_gl.postby" placeholder="Enter postby" />
+     </div>
+     <div class="form-group">
+      <label for="date_created">Date Created</label>
+      <input type="date" class="form-control" name="date_created" ng-model="account_gl.date_created" placeholder="Enter date_created" />
+     </div>
+     <div class="form-group">
+      <label for="date_updated">Date Updated</label>
+      <input type="date" class="form-control" name="date_updated" ng-model="account_gl.date_updated" placeholder="Enter date_updated" />
+     </div>
+     <div class="form-group">
+      <label for="date_deleted">Date Deleted</label>
+      <input type="date" class="form-control" name="date_deleted" ng-model="account_gl.date_deleted" placeholder="Enter date_deleted" />
+     </div>
+     <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" class="form-control" name="status" ng-model="account_gl.status" placeholder="Enter status" />
+     </div>
+<button ng-click="account_gl_save();" type="button" class="btn btn-primary">&nbsp;SAVE&nbsp;</button>
+</form>
+</div><div class="display" id="dview">
+  <table class="table table-hover table-dark table-bordered">    <thead>
+        <tr><th>S/N</th><th>ID</th><th>NARATION</th><th>DEBIT</th><th>CREDIT</th><th>TRANS DATE</th><th>VALUE DATE</th><th>SAVEDBY</th><th>&nbsp;</th>
+    </tr></thead><tbody><tr ng-repeat="x in account_gl.account_gl"><td>{{$index + 1}}</td><td>{{x.id}}</td><td>{{x.naration}}</td><td>{{x.debit}}</td><td>{{x.credit}}</td><td>{{x.trans_date}}</td><td>{{x.value_date}}</td><td>{{x.savedby}}</td><td align="center">&nbsp;<i onclick="toggle_display('dnew');" ng-click="do_account_gl_update('id', x.id);" class="fas fa-edit"></i>&nbsp;&nbsp;<i onclick="toggle_display('dsview');" ng-click="account_gl_view_single('id', x.id);" class="fas fa-eye"></i>&nbsp;&nbsp;<i ng-click="account_gl_delete('id', x.id);" class="fas fa-trash"></i></td>&nbsp;
+  </tbody>
+</table>
+</div>
+    <div class="display" id="dsview">
+        <table>
+            <tr><td align="right"><b>id:</b></td><td align="left">&nbsp;{{account_gl.id}}</td></tr>
+            <tr><td align="right"><b>naration:</b></td><td align="left">&nbsp;{{account_gl.naration}}</td></tr>
+            <tr><td align="right"><b>trans_id:</b></td><td align="left">&nbsp;{{account_gl.trans_id}}</td></tr>
+            <tr><td align="right"><b>trans_ref:</b></td><td align="left">&nbsp;{{account_gl.trans_ref}}</td></tr>
+            <tr><td align="right"><b>debit:</b></td><td align="left">&nbsp;{{account_gl.debit}}</td></tr>
+            <tr><td align="right"><b>credit:</b></td><td align="left">&nbsp;{{account_gl.credit}}</td></tr>
+            <tr><td align="right"><b>trans_date:</b></td><td align="left">&nbsp;{{account_gl.trans_date}}</td></tr>
+            <tr><td align="right"><b>value_date:</b></td><td align="left">&nbsp;{{account_gl.value_date}}</td></tr>
+            <tr><td align="right"><b>savedby:</b></td><td align="left">&nbsp;{{account_gl.savedby}}</td></tr>
+            <tr><td align="right"><b>postby:</b></td><td align="left">&nbsp;{{account_gl.postby}}</td></tr>
+            <tr><td align="right"><b>date_created:</b></td><td align="left">&nbsp;{{account_gl.date_created}}</td></tr>
+            <tr><td align="right"><b>date_updated:</b></td><td align="left">&nbsp;{{account_gl.date_updated}}</td></tr>
+            <tr><td align="right"><b>date_deleted:</b></td><td align="left">&nbsp;{{account_gl.date_deleted}}</td></tr>
+            <tr><td align="right"><b>status:</b></td><td align="left">&nbsp;{{account_gl.status}}</td></tr>
+        </table>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/popper.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/angular.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.datepick.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.table2excel.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.uploadfile.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/utility.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/autocomplete.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/src/account_gl.js"></script>    </body>
+</html>

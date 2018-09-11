@@ -1,0 +1,141 @@
+<!DOCTYPE html> 
+ <html lang="en"> 
+      <head> 
+           <meta content="text/html" charset="utf-8" > 
+           <meta name="viewport" content="width=device-width, initial-scale=1"> 
+           <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery-ui.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery.datepick.css" > 
+           <link rel="stylesheet" href="../../../assets/css/custom/uploadfile.css" > 
+           <link rel="stylesheet" href="../../../assets/css/fontawesome-all.min.css" > 
+          <link rel="stylesheet" href="../../../assets/css/custom/slide-menu.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/table-header.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/view.css" >
+    </head>    <body onload="loadHtmlPage('../menu.html', 'sidemenu');toggle_display('dview');">
+        <div class="container-fluid" style="padding:0; margin:0; top:0; left:0;"> 
+            <div ng-app="sales_ledgerView" ng-controller="sales_ledgerCtrl" class="row">
+                <div id="sidemenu" class="col-xl-3 col-lg-3 col-md-3 d-lg-inline d-md-inline d-sm-none d-none"></div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <span class="info"></span>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <ul class="menu">
+                                <li onclick="toggle_display('dview','reload');" class="rootmenu"><i class="fas fa-home" aria-hidden="true"></i><a href="#"> Home</a></li>
+                                <li class="rootmenu"><i class="fas fa-print" aria-hidden="true"></i><a href="#"> Print</a></li>
+                                <li class="rootmenu"><i class="fas fa-cloud-download-alt"></i><a href="#"> Export</a>
+                                    <ul id="menu_list">
+                                        <li><i class="fas fa-file-excel" aria-hidden="true"></i><a href="#">  Excel</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  CSV</a></li>
+                                        <li><i class="fas fa-file-pdf" aria-hidden="true"></i><a href="#">  Pdf</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  Text</a></li>
+                                        <li><i class="fas fa-file-word" aria-hidden="true"></i><a href="#">  Word</a></li>
+                                    </ul>
+                                </li>
+                                <li onclick="toggle_display('dnew');" class="rootmenu"><i class="fas fa-copy" aria-hidden="true"></i><a href="#"> Add New</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div>
+            <div class="display" id="dnew">
+                <form name="frmSales_ledger"  method="post" enctype="multipart/form-data">
+                    <input #colname type="hidden" name="colname" ng-model="update.col_name" />
+                    <input #colvalue type="hidden" name="colvalue" ng-model="update.col_value" />
+
+     <div class="form-group">
+      <label for="trans_id">Trans Id</label>
+      <input type="text" class="form-control" name="trans_id" ng-model="sales_ledger.trans_id" placeholder="Enter trans_id" />
+     </div>
+     <div class="form-group">
+      <label for="trans_ref">Trans Ref</label>
+      <input type="text" class="form-control" name="trans_ref" ng-model="sales_ledger.trans_ref" placeholder="Enter trans_ref" />
+     </div>
+     <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" name="description" ng-model="sales_ledger.description" placeholder="Enter description" />
+     </div>
+     <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" name="description" ng-model="sales_ledger.description">Enter description</textarea>
+     </div>
+     <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="text" class="form-control" name="quantity" ng-model="sales_ledger.quantity" placeholder="Enter quantity" />
+     </div>
+     <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="text" class="form-control" name="amount" ng-model="sales_ledger.amount" placeholder="Enter amount" />
+     </div>
+     <div class="form-group">
+      <label for="total">Total</label>
+      <input type="text" class="form-control" name="total" ng-model="sales_ledger.total" placeholder="Enter total" />
+     </div>
+     <div class="form-group">
+      <label for="trans_date">Trans Date</label>
+      <input type="date" class="form-control" name="trans_date" ng-model="sales_ledger.trans_date" placeholder="Enter trans_date" />
+     </div>
+     <div class="form-group">
+      <label for="created_by">Created By</label>
+      <input type="text" class="form-control" name="created_by" ng-model="sales_ledger.created_by" placeholder="Enter created_by" />
+     </div>
+     <div class="form-group">
+      <label for="date_created">Date Created</label>
+      <input type="date" class="form-control" name="date_created" ng-model="sales_ledger.date_created" placeholder="Enter date_created" />
+     </div>
+     <div class="form-group">
+      <label for="date_updated">Date Updated</label>
+      <input type="date" class="form-control" name="date_updated" ng-model="sales_ledger.date_updated" placeholder="Enter date_updated" />
+     </div>
+     <div class="form-group">
+      <label for="date_deleted">Date Deleted</label>
+      <input type="date" class="form-control" name="date_deleted" ng-model="sales_ledger.date_deleted" placeholder="Enter date_deleted" />
+     </div>
+     <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" class="form-control" name="status" ng-model="sales_ledger.status" placeholder="Enter status" />
+     </div>
+<button ng-click="sales_ledger_save();" type="button" class="btn btn-primary">&nbsp;SAVE&nbsp;</button>
+</form>
+</div><div class="display" id="dview">
+  <table class="table table-hover table-dark table-bordered">    <thead>
+        <tr><th>S/N</th><th>ID</th><th>TRANS ID</th><th>TRANS REF</th><th>DESCRIPTION</th><th>QUANTITY</th><th>AMOUNT</th><th>TOTAL</th><th>TRANS DATE</th><th>CREATED BY</th><th>&nbsp;</th>
+    </tr></thead><tbody><tr ng-repeat="x in sales_ledger.sales_ledger"><td>{{$index + 1}}</td><td>{{x.id}}</td><td>{{x.trans_id}}</td><td>{{x.trans_ref}}</td><td>{{x.description}}</td><td>{{x.quantity}}</td><td>{{x.amount}}</td><td>{{x.total}}</td><td>{{x.trans_date}}</td><td>{{x.created_by}}</td><td align="center">&nbsp;<i onclick="toggle_display('dnew');" ng-click="do_sales_ledger_update('id', x.id);" class="fas fa-edit"></i>&nbsp;&nbsp;<i onclick="toggle_display('dsview');" ng-click="sales_ledger_view_single('id', x.id);" class="fas fa-eye"></i>&nbsp;&nbsp;<i ng-click="sales_ledger_delete('id', x.id);" class="fas fa-trash"></i></td>&nbsp;
+  </tbody>
+</table>
+</div>
+    <div class="display" id="dsview">
+        <table>
+            <tr><td align="right"><b>id:</b></td><td align="left">&nbsp;{{sales_ledger.id}}</td></tr>
+            <tr><td align="right"><b>trans_id:</b></td><td align="left">&nbsp;{{sales_ledger.trans_id}}</td></tr>
+            <tr><td align="right"><b>trans_ref:</b></td><td align="left">&nbsp;{{sales_ledger.trans_ref}}</td></tr>
+            <tr><td align="right"><b>description:</b></td><td align="left">&nbsp;{{sales_ledger.description}}</td></tr>
+            <tr><td align="right"><b>quantity:</b></td><td align="left">&nbsp;{{sales_ledger.quantity}}</td></tr>
+            <tr><td align="right"><b>amount:</b></td><td align="left">&nbsp;{{sales_ledger.amount}}</td></tr>
+            <tr><td align="right"><b>total:</b></td><td align="left">&nbsp;{{sales_ledger.total}}</td></tr>
+            <tr><td align="right"><b>trans_date:</b></td><td align="left">&nbsp;{{sales_ledger.trans_date}}</td></tr>
+            <tr><td align="right"><b>created_by:</b></td><td align="left">&nbsp;{{sales_ledger.created_by}}</td></tr>
+            <tr><td align="right"><b>date_created:</b></td><td align="left">&nbsp;{{sales_ledger.date_created}}</td></tr>
+            <tr><td align="right"><b>date_updated:</b></td><td align="left">&nbsp;{{sales_ledger.date_updated}}</td></tr>
+            <tr><td align="right"><b>date_deleted:</b></td><td align="left">&nbsp;{{sales_ledger.date_deleted}}</td></tr>
+            <tr><td align="right"><b>status:</b></td><td align="left">&nbsp;{{sales_ledger.status}}</td></tr>
+        </table>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/popper.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/angular.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.datepick.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.table2excel.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.uploadfile.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/utility.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/autocomplete.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/src/sales_ledger.js"></script>    </body>
+</html>

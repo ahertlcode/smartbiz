@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Educare&reg;::Portal</title>
+        <meta content="text/html" charset="utf-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" >
+        <link rel="stylesheet" href="assets/css/jquery.datepick.css" >
+        <link rel="stylesheet" href="assets/css/uploadfile.css" >
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" >
+        <link rel="stylesheet" href="assets/css/custom/slide-menu.css" >
+        <link rel="stylesheet" href="assets/css/custom/table-header.css" >
+      </head>
+  <body>
+    <div class="container-fluid">
+      <div ng-app="signUpView" ng-controller="signUpCtrl" class="row">
+      <span class="info"></span>
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input class="form-control" name="fullname" type="text" ng-model="user.name" required>
+          <small>Please Enter your full name with surname first.</small>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input class="form-control" name="email" type="email" ng-model="user.email" required>
+          <small>Please Enter your email.</small>
+        </div>
+        <div class="form-group">
+          <label for="role">User Role</label>
+          <input class="form-control" name="role" type="text" ng-model="user.role" required>
+          <small>Please Enter user role.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Choose Password</label>
+          <input class="form-control" name="password" type="password" ng-model="user.password" required>
+          <small>Choose a strong but easy to remember password.</small>
+        </div>
+        <div class="form-group">
+          <label for="cpassword">Confirm Password</label>
+          <input class="form-control" name="cpassword" type="password" ng-model="user.cpassword" required>
+          <small>Confirm your password.</small>
+        </div>
+        <button type="button" ng-click="signup();" class="btn btn-primary">&nbsp;Register&nbsp;</button>
+      </form>
+      </div>
+    </div>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/popper.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/angular.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery-ui.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.datepick.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.table2excel.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.uploadfile.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/utility.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/autocomplete.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/src/signup.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/src/signin.js"></script>
+    </body>
+  </html>

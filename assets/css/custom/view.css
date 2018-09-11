@@ -1,0 +1,19 @@
+div{
+	padding: none !important;
+}
+.display-hide{
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.display-show{
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    z-index: 8;
+    overflow: auto;
+}
+.msg-show{}
+.msg-hide{}
